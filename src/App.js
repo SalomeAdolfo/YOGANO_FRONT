@@ -1,6 +1,24 @@
 import React from 'react'
 import '../src/styles/HomeStyles.css'
+import { useNavigate } from 'react-router'
+import { AuthContext } from './contexts/AuthProvider';
+import { baseURL } from './constants/route';
 function App() {
+  const { isAuthenticated, notify, setRoles } = React.useContext(AuthContext);
+
+  console.log(isAuthenticated)
+  const navigate = useNavigate();
+
+  async function logOut() {
+    const response = await fetch(`${baseURL}auth/logOut`, {
+      credentials: 'include'
+    })
+    if (response.ok) {
+      notify('Sesión cerrada con éxito', 'info')
+      setRoles([])
+      window.location.reload()
+    }
+  }
   return (
     <div className="container-fluid">
       <div className='col-lg-12 bg-white'>
@@ -22,15 +40,27 @@ function App() {
                   <li className="nav-item">
                     <a className="nav-link active" aria-current="page" href="/">Home</a>
                   </li>
-                  <li className="nav-item">
-                    <a className="nav-link" href="/">Carrito</a>
-                  </li>
                   <li className="nav-item dropdown">
                     <span className="nav-link dropdown-toggle" id="dropdownId" style={{ cursor: 'pointer' }} data-bs-toggle="dropdown"
-                      aria-haspopup="true" aria-expanded="false">Usuario</span>
+                      aria-haspopup="true" aria-expanded="false">{isAuthenticated ? (JSON.parse(window.sessionStorage.getItem('userData')).usuario) : 'Usuario'}</span>
                     <div className="dropdown-menu" aria-labelledby="dropdownId">
-                      <a className="dropdown-item" href="/login">Log In</a>
-                      <a className="dropdown-item" href="/signup">Sign Up</a>
+                      {!isAuthenticated ? (
+                        <>
+                          <a className="dropdown-item" href="/login">Log In</a>
+                          <a className="dropdown-item" href="/signup">Sign Up</a>
+                        </>
+                      ) : (
+                        <>
+                          <a className="dropdown-item" href="/pedidos">Pedidos</a>
+                          <span className="dropdown-item" onClick={() => {
+                            let confirm = window.confirm("¿Deseas cerrar sesión?")
+                            if (confirm) {
+                              logOut()
+                            }
+                          }} >Log out</span>
+                        </>
+                      )}
+
                     </div>
                   </li>
                 </ul>
@@ -132,7 +162,7 @@ function App() {
             <span className='text-black fw-bold' style={{ fontSize: '20px' }}>¿Deseas probarlo?</span>
           </div>
           <div className='text-center'>
-            <button className='btn btn-info text-white fw-bold'>
+            <button className='btn btn-info text-white fw-bold' onClick={() => navigate('/pedidos')}>
               Comprar
             </button>
           </div>
@@ -144,19 +174,19 @@ function App() {
             <div className='w-100' style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <div className='p-3' style={{ width: '100px', backgroundColor: 'red', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
 
-                <a href='#'>Facebook</a></div>
+                <a href='https://facebook.com'>Facebook</a></div>
 
               <div className='p-3' style={{ width: '100px', backgroundColor: 'red', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-                <a href='#'>Instagram</a>
+                <a href='https://instagram.com'>Instagram</a>
               </div>
 
               <div className='p-3' style={{ width: '100px', backgroundColor: 'red', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-                <a href='#'>Tik tok</a>
+                <a href='https://tiktok.com'>Tik tok</a>
               </div>
             </div>
           </div>
           <div className='col-md-4' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            <img src={process.env.PUBLIC_URL + '/img/LOGO_YOGANO.jpg'} alt='Yogano' style={{ width: '50%', height: '80%' }} />
+            <img src={process.env.PUBLIC_URL + '/img/LOGO_YOGANO.jpg'} alt='Yogano' style={{ width: '70%', height: '80%' }} />
           </div>
         </footer>
 
