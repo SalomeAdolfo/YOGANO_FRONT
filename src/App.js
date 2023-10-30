@@ -52,7 +52,7 @@ function App() {
                       ) : (
                         <>
                           <a className="dropdown-item" href="/pedidos">Pedidos</a>
-                          <span className="dropdown-item" onClick={() => {
+                          <span style={{ cursor: 'pointer' }} className="dropdown-item" onClick={() => {
                             let confirm = window.confirm("¿Deseas cerrar sesión?")
                             if (confirm) {
                               logOut()
