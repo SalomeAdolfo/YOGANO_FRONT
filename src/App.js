@@ -52,7 +52,14 @@ function App() {
             <img src={process.env.PUBLIC_URL + "/img/Producto1.jpg"} alt='Producto 1' />
           </div>
           <div className='product__info'>
-            Información de producto 1
+            <span>
+              Información de producto 1
+            </span>
+            <p>
+              sfsadfasdfdsafkajhfdhdsafsa
+              fsudahyfudsahfuash
+              fsauhdusahyusadsadsad
+            </p>
           </div>
         </section>
 
@@ -61,7 +68,14 @@ function App() {
             <img src={process.env.PUBLIC_URL + "/img/Producto2.jpg"} alt='Producto 2' />
           </div>
           <div className='product__info'>
-            Información de producto 2
+            <span>
+              Información de producto 2
+            </span>
+            <p>
+              sfsadfasdfdsafkajhfdhdsafsa
+              fsudahyfudsahfuash
+              fsauhdusahyudsasadsadsada
+            </p>
           </div>
         </section>
 
@@ -70,7 +84,14 @@ function App() {
             <img src={process.env.PUBLIC_URL + "/img/Producto3.jpg"} alt='Producto 3' />
           </div>
           <div className='product__info'>
-            Información de producto 3
+            <span>
+              Información de producto 3
+            </span>
+            <p>
+              sfsadfasdfdsafkajhfdhdsafsa
+              fsudahyfudsahfuash
+              fsauhdusahyu
+            </p>
           </div>
         </section>
 
@@ -79,7 +100,14 @@ function App() {
             <img src={process.env.PUBLIC_URL + "/img/Producto4.jpg"} alt='Producto 4' />
           </div>
           <div className='product__info'>
-            información producto 4
+            <span>
+              información producto 4
+            </span>
+            <p>
+              sfsadfasdfdsafkajhfdhdsafsa
+              fsudahyfudsahfuash
+              fsauhdusahyu
+            </p>
           </div>
         </section>
 
@@ -88,7 +116,14 @@ function App() {
             <img src={process.env.PUBLIC_URL + "/img/Producto6.jpg"} alt='Producto 5' />
           </div>
           <div className='product__info'>
-            Información de producto 5
+            <span>
+              Información de producto 5
+            </span>
+            <p>
+              sfsadfasdfdsafkajhfdhdsafsa
+              fsudahyfudsahfuash
+              fsauhdusahyu
+            </p>
           </div>
         </section>
 
