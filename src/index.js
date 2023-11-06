@@ -8,9 +8,11 @@ import SignUpPage from './pages/SignUpPage';
 import { AuthProvider } from './contexts/AuthProvider';
 import { ToastContainer } from 'react-toastify';
 import PedidosPage from './pages/PedidosPage';
+import ReactGA from 'react-ga'
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+ReactGA.initialize('6353945940')
 root.render(
   <React.StrictMode>
     <ToastContainer />

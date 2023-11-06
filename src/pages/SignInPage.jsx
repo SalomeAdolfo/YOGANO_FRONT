@@ -4,10 +4,21 @@ import { baseURL } from '../constants/route'
 import { Formik } from 'formik'
 import * as Yup from 'yup'
 import { AuthContext } from '../contexts/AuthProvider'
+import ReactGA from 'react-ga'
 
 function SignInPage() {
     const { setIsAuthenticated, getUserStatus, notify } = React.useContext(AuthContext)
     const navigate = useNavigate()
+    ReactGA.pageview(window.location.pathname);
+
+    const handleClick = () => {
+        ReactGA.event({
+          category: 'Botones',
+          action: 'Clic en botón Enviar',
+        });
+    
+      
+      };
     return (
         <section className='container-fluid row d-flex' style={{ width: '100vw', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             <div className="col-lg-4" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
@@ -89,7 +100,7 @@ function SignInPage() {
                                     {errors.password && touched.password && <div className='error__message'>{errors.password}</div>}
                                 </div>
                                 <div className='d-flex justify-content-center'>
-                                    <button type="submit" className='btn btn-secondary'>
+                                    <button type="submit" className='btn btn-secondary' onClick={handleClick}>
                                         Enviar
                                     </button>
                                 </div>
