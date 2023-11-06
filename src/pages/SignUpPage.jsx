@@ -8,11 +8,11 @@ function SignUpPage() {
   const {notify} = React.useContext(AuthContext)
   const navigate = useNavigate()
   return (
-    <section className='container-fluid row'>
-      <div className="col-lg-12" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+    <section className='container-fluid row' style={{width: '100vw', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+      <div className="col-lg-4" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         <img className='text-center' src={process.env.PUBLIC_URL + "/img/LOGO_YOGANO.jpg"} alt={'YOGANO'} height={'300px'} width={'320px'} />
       </div>
-      <div className="col-lg-12 d-flex justify-content-center">
+      <div className="col-lg-8 d-flex justify-content-center">
         <article style={{ width: '70%' }}>
           <h1 className='fw-bold text-center'>Registro</h1>
           <Formik

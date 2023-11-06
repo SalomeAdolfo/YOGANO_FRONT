@@ -5,13 +5,13 @@ import * as Yup from 'yup'
 import { baseURL } from '../constants/route'
 function PedidosPage() {
 
-    const { isAuthenticated } = React.useContext(AuthContext)
+    const { isAuthenticated, notify } = React.useContext(AuthContext)
     return (
-        <section className='container-fluid row'>
-            <div className="col-lg-12" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <section className='container-fluid row' style={{ width: '100vw', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <div className="col-lg-4" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                 <img className='text-center' src={process.env.PUBLIC_URL + "/img/LOGO_YOGANO.jpg"} alt={'YOGANO'} height={'300px'} width={'320px'} />
             </div>
-            <div className="col-lg-12 d-flex justify-content-center">
+            <div className="col-lg-8 d-flex justify-content-center align-content-center">
                 <Formik
                     initialValues={{
                         domicilio: '',
@@ -32,8 +32,9 @@ function PedidosPage() {
                                     ...values
                                 })
                             })
-                            if(res.ok){
-                                console.log('ok')
+                            if (res.ok) {
+                                notify('Pedido generado correctamente, por favor, revisa tu correo de entrada.', 'success')
+                                window.location.reload()
                             }
                         }
 
@@ -51,10 +52,11 @@ function PedidosPage() {
                         touched,
                         handleChange,
                         handleBlur,
-                        handleSubmit
+                        handleSubmit,
                     }) => (
                         <form onSubmit={handleSubmit}>
-                            <div className="mb-3">
+                            <h1 className='fw-bold text-center'>Solicitud de pedido</h1>
+                            <div className="mb-3  d-flex flex-column" style={{ width: '100vh', height: '100px' }}>
                                 <span className="text-warning fw-bold">
                                     Domicilio:
                                 </span>
@@ -70,7 +72,7 @@ function PedidosPage() {
                                 {errors.domicilio && touched.domicilio && <div>{errors.domicilio}</div>}
                             </div>
 
-                            <div className="mb-3">
+                            <div className="mb-3 d-flex flex-column" style={{ width: '100vh', height: '100px' }}>
                                 <span className="text-warning fw-bold">
                                     Teléfono:
                                 </span>
@@ -86,7 +88,7 @@ function PedidosPage() {
                                 {errors.no_tel && touched.no_tel && <div>{errors.no_tel}</div>}
                             </div>
 
-                            <div className="mb-3">
+                            <div className="mb-3 d-flex flex-column" style={{ width: '100vh', height: '100px' }}>
                                 <span className="text-warning fw-bold">
                                     Cantidad de productos:
                                 </span>

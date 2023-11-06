@@ -9,11 +9,11 @@ function SignInPage() {
     const { setIsAuthenticated, getUserStatus, notify } = React.useContext(AuthContext)
     const navigate = useNavigate()
     return (
-        <section className='container-fluid row'>
-            <div className="col-lg-12" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <section className='container-fluid row d-flex' style={{ width: '100vw', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <div className="col-lg-4" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                 <img className='text-center' src={process.env.PUBLIC_URL + "/img/LOGO_YOGANO.jpg"} alt={'YOGANO'} height={'300px'} width={'320px'} />
             </div>
-            <div className="col-lg-12 d-flex justify-content-center">
+            <div className="col-lg-8 d-flex justify-content-center">
                 <article style={{ width: '70%' }}>
                     <h1 className='fw-bold text-center'>Inicio de sesión</h1>
                     <Formik
