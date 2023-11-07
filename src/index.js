@@ -9,6 +9,11 @@ import { AuthProvider } from './contexts/AuthProvider';
 import { ToastContainer } from 'react-toastify';
 import PedidosPage from './pages/PedidosPage';
 import ReactGA from 'react-ga'
+import AdminProtectedRoutes from './utils/AdminProtectedRoutes';
+import ShowPedidos from './pages/ShowPedidos';
+import IsLoggedUser from './utils/IsLoggedUser';
+import DetallePedido from './pages/DetallePedido';
+import '../src/styles/PedidosStyles.css'
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -23,6 +28,12 @@ root.render(
           <Route path='/login' element={<SignInPage />} />
           <Route path='/signup' element={<SignUpPage />} />
           <Route path='/pedidos' element={<PedidosPage />} />
+          <Route element={<AdminProtectedRoutes />}>
+            <Route path='/pedidos/admin' element={<ShowPedidos />} />
+          </Route>
+          <Route element={<IsLoggedUser />}>
+            <Route path='/pedido/:id' element={<DetallePedido />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </AuthProvider>

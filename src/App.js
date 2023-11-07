@@ -4,9 +4,8 @@ import { useNavigate } from 'react-router'
 import { AuthContext } from './contexts/AuthProvider';
 import { baseURL } from './constants/route';
 function App() {
-  const { isAuthenticated, notify, setRoles } = React.useContext(AuthContext);
+  const { isAuthenticated, notify, setRoles, roles } = React.useContext(AuthContext);
 
-  console.log(isAuthenticated)
   const navigate = useNavigate();
 
   async function logOut() {
@@ -51,7 +50,8 @@ function App() {
                         </>
                       ) : (
                         <>
-                          <a className="dropdown-item" href="/pedidos">Pedidos</a>
+                          {roles[0].name === 'Comprador' && <a className="dropdown-item" href="/pedidos">Pedidos</a>}
+                          {roles[0].name === 'Administrador' && <a className="dropdown-item" href="/pedidos/admin">Pedidos realizados</a>}
                           <span style={{ cursor: 'pointer' }} className="dropdown-item" onClick={() => {
                             let confirm = window.confirm("¿Deseas cerrar sesión?")
                             if (confirm) {
