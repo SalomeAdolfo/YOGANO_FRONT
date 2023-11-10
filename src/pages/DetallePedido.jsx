@@ -21,7 +21,7 @@ function DetallePedido() {
                 notify('No hay más detalles sobre este pedido', 'info')
             }
         })()
-    }, [])
+    }, [id, notify])
 
     const setNumberEnvio = async (numeroRastreo) => {
         try {
@@ -37,7 +37,7 @@ function DetallePedido() {
             })
             if (response.ok) {
                 notify('Número de rastreo definido correctamente', 'success')
-                navigate('..', {replace: true})
+                window.history.back();
             } else {
                 notify('Error en el número de rastreo.', 'warning')
             }

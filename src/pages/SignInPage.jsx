@@ -13,12 +13,12 @@ function SignInPage() {
 
     const handleClick = () => {
         ReactGA.event({
-          category: 'Botones',
-          action: 'Clic en botón Enviar',
+            category: 'Botones',
+            action: 'Clic en botón Enviar',
         });
-    
-      
-      };
+
+
+    };
     return (
         <section className='container-fluid row d-flex' style={{ width: '100vw', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             <div className="col-lg-4" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
@@ -26,7 +26,7 @@ function SignInPage() {
             </div>
             <div className="col-lg-8 d-flex justify-content-center">
                 <article style={{ width: '70%' }}>
-                    <h1 className='fw-bold text-center'>Inicio de sesión</h1>
+                    <h1 className='fw-bold text-center logIn_text'>Inicio de sesión</h1>
                     <Formik
                         initialValues={{
                             usuario: '',
@@ -50,8 +50,9 @@ function SignInPage() {
                                     setIsAuthenticated(true)
                                     window.sessionStorage.setItem('userData', JSON.stringify({ usuario: values.usuario }));
                                     notify(`Bienvenido ${values.usuario}`, 'success')
-                                    navigate('/', { replace: true })
                                     getUserStatus()
+
+                                    navigate('/', { replace: true })
                                 }
                                 if (res.status === 401 || res.status === 500 || res.status === 400) {
                                     notify('Usuario no válido', 'info')
@@ -100,7 +101,7 @@ function SignInPage() {
                                     {errors.password && touched.password && <div className='error__message'>{errors.password}</div>}
                                 </div>
                                 <div className='d-flex justify-content-center'>
-                                    <button type="submit" className='btn btn-secondary' onClick={handleClick}>
+                                    <button type="submit" style={{ width: '100px', height: '40px' }} className='btn btn-success text-white fw-bold' onClick={handleClick}>
                                         Enviar
                                     </button>
                                 </div>

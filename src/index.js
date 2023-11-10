@@ -27,10 +27,10 @@ root.render(
           <Route index path='/' element={<App />} />
           <Route path='/login' element={<SignInPage />} />
           <Route path='/signup' element={<SignUpPage />} />
-          <Route path='/pedidos' element={<PedidosPage />} />
           <Route element={<AdminProtectedRoutes />}>
             <Route path='/pedidos/admin' element={<ShowPedidos />} />
           </Route>
+          <Route path='/pedidos' element={<PedidosPage />} />
           <Route element={<IsLoggedUser />}>
             <Route path='/pedido/:id' element={<DetallePedido />} />
           </Route>

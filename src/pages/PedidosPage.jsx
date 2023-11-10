@@ -5,7 +5,7 @@ import * as Yup from 'yup'
 import { baseURL } from '../constants/route'
 function PedidosPage() {
 
-    const { isAuthenticated, notify } = React.useContext(AuthContext)
+    const { notify } = React.useContext(AuthContext)
     return (
         <section className='container-fluid row' style={{ width: '100vw', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             <div className="col-lg-4" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
@@ -17,6 +17,7 @@ function PedidosPage() {
                         domicilio: '',
                         no_tel: '',
                         cantidad: '',
+                        correo: ''
                     }}
                     onSubmit={(values) => {
                         values.total_a_pagar = parseInt(values.cantidad) * 30
@@ -34,7 +35,7 @@ function PedidosPage() {
                             })
                             if (res.ok) {
                                 notify('Pedido generado correctamente, por favor, revisa tu correo de entrada.', 'success')
-                                window.location.reload()
+                            
                             }
                         }
 
@@ -43,7 +44,8 @@ function PedidosPage() {
                     validationSchema={Yup.object().shape({
                         domicilio: Yup.string().required("Dato requerido"),
                         no_tel: Yup.string().required("Dato requerido"),
-                        cantidad: Yup.string().required("Dato requerido")
+                        cantidad: Yup.string().required("Dato requerido"),
+                        correo: Yup.string().email("Escribe un email válido.")
                     })}
                 >
                     {({
@@ -86,6 +88,22 @@ function PedidosPage() {
 
                                 />
                                 {errors.no_tel && touched.no_tel && <div>{errors.no_tel}</div>}
+                            </div>
+
+                            <div className="mb-3 d-flex flex-column" style={{ width: '100vh', height: '100px' }}>
+                                <span className="text-warning fw-bold">
+                                    Correo:
+                                </span>
+                                <input
+                                    autoFocus
+                                    type="text"
+                                    name='correo'
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    value={values.correo}
+
+                                />
+                                {errors.correo && touched.correo && <div>{errors.correo}</div>}
                             </div>
 
                             <div className="mb-3 d-flex flex-column" style={{ width: '100vh', height: '100px' }}>
