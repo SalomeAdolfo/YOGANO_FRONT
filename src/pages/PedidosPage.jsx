@@ -3,6 +3,7 @@ import { AuthContext } from '../contexts/AuthProvider'
 import { Formik } from 'formik'
 import * as Yup from 'yup'
 import { baseURL } from '../constants/route'
+
 function PedidosPage() {
 
     const { notify } = React.useContext(AuthContext)
@@ -22,7 +23,7 @@ function PedidosPage() {
                     onSubmit={(values) => {
                         values.total_a_pagar = parseInt(values.cantidad) * 30
                         async function setPedido() {
-                            const res = await fetch(`${baseURL}pedidos`, {
+                            const res = await fetch(`${baseURL}payment/create-order`, {
                                 method: 'POST',
                                 headers: {
                                     'Accept': 'application/json',
@@ -35,7 +36,8 @@ function PedidosPage() {
                             })
                             if (res.ok) {
                                 notify('Pedido generado correctamente, por favor, revisa tu correo de entrada.', 'success')
-                            
+                                const json = await res.json();
+                                window.open(json.link, '_blank'); // '_blank' indica que se abrirá en una nueva pestaña
                             }
                         }
 

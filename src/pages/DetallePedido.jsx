@@ -1,5 +1,5 @@
 import React from 'react'
-import { useNavigate, useParams } from 'react-router'
+import { useParams } from 'react-router'
 import { baseURL } from '../constants/route'
 import { AuthContext } from '../contexts/AuthProvider'
 
@@ -8,7 +8,7 @@ function DetallePedido() {
     const { notify, roles } = React.useContext(AuthContext)
     const [data, setData] = React.useState([])
     const [numeroRastreo, setNumeroRastreo] = React.useState()
-    const navigate = useNavigate()
+    //const navigate = useNavigate()
     React.useEffect(() => {
         (async () => {
             const response = await fetch(`${baseURL}pedidos/${id}`, {

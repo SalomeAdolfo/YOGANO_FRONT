@@ -15,10 +15,11 @@ code {
     monospace;
 }
 
-.product__name {
+.product__name h1 {
   font-family: 'Dancing Script', cursive;
-  letter-spacing: 1px;
-  color: rgb(41, 158, 41);
+  letter-spacing: 5px;
+  font-size: 40px;
+  color: rgb(109, 232, 109);
 }
 
 .parent {

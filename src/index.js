@@ -14,6 +14,7 @@ import ShowPedidos from './pages/ShowPedidos';
 import IsLoggedUser from './utils/IsLoggedUser';
 import DetallePedido from './pages/DetallePedido';
 import '../src/styles/PedidosStyles.css'
+import MisPedidosPage from './pages/MisPedidosPage';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -30,8 +31,9 @@ root.render(
           <Route element={<AdminProtectedRoutes />}>
             <Route path='/pedidos/admin' element={<ShowPedidos />} />
           </Route>
-          <Route path='/pedidos' element={<PedidosPage />} />
           <Route element={<IsLoggedUser />}>
+            <Route path='/mis/pedidos' element={<MisPedidosPage />} />
+            <Route path='/pedidos' element={<PedidosPage />} />
             <Route path='/pedido/:id' element={<DetallePedido />} />
           </Route>
         </Routes>

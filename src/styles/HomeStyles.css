@@ -1,14 +1,19 @@
+nav .navbar-brand img {
+    height: 100px;
+    width: 130px;
+}
+
 .card_container {
     display: grid;
     grid-template-columns: repeat(auto-fit,
             minmax(320px, 1fr));
+    row-gap: 2rem;
 
 }
 
 .card {
     width: 330px;
     height: 640px;
-    margin: 5px;
     border-radius: 10px;
 }
 

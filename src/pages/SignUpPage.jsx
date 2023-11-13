@@ -49,11 +49,11 @@ function SignUpPage() {
               setUser()
             }}
             validationSchema={Yup.object().shape({
-              name: Yup.string().required('name requerido'),
-              apellido_paterno: Yup.string().required('apellido_paterno requerido'),
-              apellido_materno: Yup.string().required('apellido_materno requerido'),
-              username: Yup.string().required('username requerido'),
-              password: Yup.string().required('password requerido')
+              name: Yup.string().required('Nombre es requerido'),
+              apellido_paterno: Yup.string().required('Apellido paterno es requerido'),
+              apellido_materno: Yup.string().required('Apellido materno es requerido'),
+              username: Yup.string().required('Username requerido'),
+              password: Yup.string().required('Contraseña requerida')
             })}
           >
             {({
@@ -75,7 +75,7 @@ function SignUpPage() {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.name} />
-                  {errors.name && touched.name && <div className='error__message'>{errors.name}</div>}
+                  {errors.name && touched.name && <div className='text-danger fw-bold'>{errors.name}</div>}
                 </div>
 
                 <div className="mb-3 sectionInput">
@@ -88,7 +88,7 @@ function SignUpPage() {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.apellido_paterno} />
-                  {errors.apellido_paterno && touched.apellido_paterno && <div className='error__message'>{errors.apellido_paterno}</div>}
+                  {errors.apellido_paterno && touched.apellido_paterno && <div className='text-danger fw-bold'>{errors.apellido_paterno}</div>}
                 </div>
 
 
@@ -102,7 +102,7 @@ function SignUpPage() {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.apellido_materno} />
-                  {errors.apellido_materno && touched.apellido_materno && <div className='error__message'>{errors.apellido_materno}</div>}
+                  {errors.apellido_materno && touched.apellido_materno && <div className='text-danger fw-bold'>{errors.apellido_materno}</div>}
                 </div>
 
                 <div className="mb-3 sectionInput">
@@ -116,7 +116,7 @@ function SignUpPage() {
                     onBlur={handleBlur}
                     autoComplete='current-user'
                     value={values.username} />
-                  {errors.username && touched.username && <div className='error__message'>{errors.username}</div>}
+                  {errors.username && touched.username && <div className='text-danger fw-bold'>{errors.username}</div>}
                 </div>
 
                 <div className='mb-3 sectionInput'>
@@ -129,7 +129,7 @@ function SignUpPage() {
                     onBlur={handleBlur}
                     autoComplete='current-password'
                     value={values.password} />
-                  {errors.password && touched.password && <div className='error__message'>{errors.password}</div>}
+                  {errors.password && touched.password && <div className='text-danger fw-bold'>{errors.password}</div>}
                 </div>
                 <div className='d-flex justify-content-center'>
                   <button type="submit" className='btn btn-secondary'>
