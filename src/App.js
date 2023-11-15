@@ -4,9 +4,10 @@ import { useNavigate } from 'react-router'
 import { promocionesYogurVegano } from './constants/information';
 import NavBarComponent from './components/NavBarComponent';
 import FooterComponent from './components/FooterComponent';
+import { AuthContext } from './contexts/AuthProvider';
 
 function App() {
-
+  const { isAuthenticated, notify } = React.useContext(AuthContext)
   const navigate = useNavigate();
 
   return (
@@ -24,7 +25,7 @@ function App() {
       <div className='card_container'>
         {
           [1, 2, 3, 4, 5, 6, 7, 8].map((el, idx) =>
-            <div key={idx} className='card'>
+            <div key={idx} className='card shadow-lg'>
               <div className='card_image'>
                 <img src={process.env.PUBLIC_URL + `/img/Producto${el}.jpg`} alt='Imagen Yogano' />
               </div>
@@ -32,12 +33,18 @@ function App() {
                 <span>{promocionesYogurVegano[idx].titulo}</span>
                 <p>{promocionesYogurVegano[idx].description}</p>
               </div>
-              <div className='comprar__item' onClick={() => navigate('/pedidos', { preventScrollReset: true })}>+</div>
+              <div className='comprar__item' onClick={() => {
+                if (isAuthenticated) {
+                  navigate('/pedidos', { preventScrollReset: true })
+                } else {
+                  notify('Es necesario iniciar sesión primero.', 'info')
+                }
+              }}>+</div>
             </div>
           )
         }
       </div>
-      <div className='w-100 sticky-bottom'>
+      <div className='w-100 mt-5'>
         {/**Footer */}
         <FooterComponent />
       </div>

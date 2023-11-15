@@ -18,7 +18,7 @@ function FooterComponent() {
 
                         <div className='p-3' style={{ width: '100px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
                             <img src={process.env.PUBLIC_URL + "/logos/x.png"} alt='X' />
-                            <a href='https://tiktok.com'>X</a>
+                            <a href='https://twitter.com/'>X</a>
                         </div>
                     </div>
                 </div>
