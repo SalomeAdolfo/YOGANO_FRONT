@@ -10,14 +10,14 @@ function App() {
   const navigate = useNavigate();
 
   return (
-    <div className="container-lg bg-transparent w-100">
+    <div className="container-lg w-100">
       {/** Esto es el contenedor para renderizar el navbar de la página*/}
-      <div className='col-lg-12 bg-white'>
+      <div className='col-lg-12'>
         <NavBarComponent />
       </div>
       <div className='product__name'>
         <h1 className='fw-bold text-center'>
-          YOGANO
+          YoGano
         </h1>
       </div>
       {/** Body de imágenes */}'

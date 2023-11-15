@@ -34,7 +34,7 @@ function NavBarComponent() {
                                 </li>
                             }
                             <li className="nav-item dropdown">
-                                <span className="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style={{ cursor: 'pointer' }}>
+                                <span className="nav-link dropdown-toggle fw-bold" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style={{ cursor: 'pointer', fontSize: '18px' }}>
                                     {isAuthenticated ? (JSON.parse(window.sessionStorage.getItem('userData')).usuario || "") : 'User'}
                                 </span>
                                 <div className="dropdown-menu" aria-labelledby="dropdownId">
