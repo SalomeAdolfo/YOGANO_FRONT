@@ -10,7 +10,7 @@ function PedidosPage() {
     return (
         <section className='container-fluid row' style={{ width: '100vw', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             <div className="col-lg-4" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                <img className='text-center shadow-lg rounded-3' src={process.env.PUBLIC_URL + "/img/LOGO_YOGANO.png"} alt={'YOGANO'} height={'300px'} width={'320px'} />
+                <img className='text-center shadow' style={{borderRadius: '100%'}} src={process.env.PUBLIC_URL + "/img/LOGO_YOGANO.png"} alt={'YOGANO'} height={'300px'} width={'300px'} />
             </div>
             <div className="col-lg-8 d-flex justify-content-center align-content-center">
                 <Formik

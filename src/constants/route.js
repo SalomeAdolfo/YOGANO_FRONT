@@ -1,1 +1,1 @@
-export const baseURL = 'https://t6nr56b7-3005.usw3.devtunnels.ms/api/'
+export const baseURL = 'http://127.0.0.1:3005/api/'

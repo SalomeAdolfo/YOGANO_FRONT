@@ -44,7 +44,7 @@ function App() {
           )
         }
       </div>
-      <div className='w-100 mt-5 bg-gradient bg-dark.bg-light'>
+      <div className='w-100 mt-5'>
         {/**Footer */}
         <FooterComponent />
       </div>

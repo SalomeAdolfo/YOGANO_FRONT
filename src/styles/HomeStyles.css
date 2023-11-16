@@ -6,19 +6,22 @@ nav .navbar-brand img {
 .card_container {
     display: grid;
     grid-template-columns: repeat(auto-fit,
-            minmax(320px, 1fr));
-    row-gap: 2rem;
-    column-gap: 2rem
-
+            minmax(330px, 1fr));
+    gap: 20px;
+    place-items: center;
+    place-content: center;
 }
 
 .card {
+    background-color: rgba(0,0,0,.5);
     width: 330px;
     height: 640px;
     border-radius: 10px;
+    border: none
 }
 
 .card_image {
+    padding: 2.5px;
     width: 100%;
     height: 70%;
     border: 10px
@@ -27,7 +30,8 @@ nav .navbar-brand img {
 .card_image img {
     width: 100%;
     height: 100%;
-    border-radius: 10px
+    border-top-left-radius: 10px;
+    border-radius: 10px;
 }
 
 .card_info {
@@ -37,14 +41,14 @@ nav .navbar-brand img {
 }
 
 .card_info span {
-    color: black;
+    color: rgb(255, 255, 255);
     text-align: center;
     font-weight: bold;
     font-size: large;
 }
 
 .card_info p {
-    color: black;
+    color: rgb(255, 255, 255);
     text-align: justify;
 }
 
@@ -64,6 +68,7 @@ nav .navbar-brand img {
     border-bottom-right-radius: 10px;
     border-top-left-radius: 50%;
     cursor: pointer;
+    border:none;
 }
 
 footer a {
